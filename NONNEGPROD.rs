@@ -15,13 +15,9 @@ fn main() {
                     writeln!(buf,"0").unwrap();
                     continue;
                 }
-                let x: Vec<&str> = x
-                    .trim()
-                    .split('-')
-                    .collect();
-                match x.len() & 1 {
-                    1 => {writeln!(buf,"0").unwrap();}
-                    _ => {writeln!(buf,"1").unwrap();}
+                match x.matches('-').count() & 1 {
+                    1 => {writeln!(buf,"1").unwrap();}
+                    _ => {writeln!(buf,"0").unwrap();}
                 }
             }
             None => {
