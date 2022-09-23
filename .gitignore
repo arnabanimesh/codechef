@@ -2,6 +2,6 @@
 *
 
 # Except these files
-.gitignore
-LICENSE
-*.rs
+!.gitignore
+!LICENSE
+!*.rs
