@@ -1,17 +1,13 @@
 use std::fmt::Write;
-use std::io::{stdin, BufRead};
+use std::io;
+use std::io::BufRead;
 
 fn main() {
-    let mut vec = stdin().lock().lines();
-    let t: usize = vec
-        .next()
-        .unwrap()
-        .unwrap()
-        .trim()
-        .parse()
-        .expect("Failed to parse t as int");
     let mut buf = String::with_capacity(4096);
-    for _ in 0..t {
+    let input = io::stdin();
+    let mut vec = input.lock().lines();
+    vec.next();
+    loop {
         match vec.next() {
             Some(i) => {
                 let n: usize = i.unwrap().trim().parse().expect("Failed to parse n as int");
